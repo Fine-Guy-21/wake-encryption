@@ -1,0 +1,71 @@
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'OGJZJD,CMXRPA'}
+    components:
+    - type: Label
+      properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: WAKE ALGORITHM, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_1
+      layout_properties: {grid_position: 'IEVAXK,QCCFZP'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Input Key :', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: InputKeyLabel
+      layout_properties: {grid_position: 'ROOKHV,WBMCVD', row_background: 'theme:Gray
+          50'}
+    - type: TextBox
+      properties: {placeholder: Enter your input key}
+      name: inputkey
+      layout_properties: {grid_position: 'ROOKHV,CPYUWC'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Plaintext : ', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: PlaintextLabel
+      layout_properties: {grid_position: 'ICXUVK,HQIARV'}
+    - type: TextBox
+      properties: {placeholder: Enter your Plaintext here}
+      name: Plaintext
+      layout_properties: {grid_position: 'ICXUVK,WWAASA'}
+    - name: Encryptbtn
+      properties: {text: Encrypt}
+      type: Button
+      layout_properties: {grid_position: 'ENXYVX,LYQWEM'}
+      event_bindings: {click: Encryptbtn_click}
+    - name: Encryptedtext
+      properties: {placeholder: Encrypted text}
+      type: TextBox
+      layout_properties: {grid_position: 'GXHDLT,GBWYHW'}
+    - name: Decryptbtn
+      properties: {text: Decrypt, align: center, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'ZUUMUC,NOHKWX'}
+      event_bindings: {click: Decryptbtn_click}
+    - name: Decryptedtext
+      properties: {placeholder: 'Decrypted text '}
+      type: TextBox
+      layout_properties: {grid_position: 'PCZULK,LGAXRP'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- name: title_lbl
+  properties: {text: Encryption}
+  type: Label
+  layout_properties: {slot: title}
+is_package: true

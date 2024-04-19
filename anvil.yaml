@@ -31,13 +31,14 @@ services:
   client_config: {}
   server_config: {}
 cta: {preset: feedback_form_welcome}
-package_name: Feedback_Form_1
+startup: {type: form, module: WakeEncryption}
+package_name: Wake_Encryption
 allow_embedding: false
-name: Feedback Form 1
+name: Wake Encryption
 runtime_options: {version: 2, server_version: python3-sandbox, client_version: '3',
   server_spec: null}
-metadata: {}
-startup_form: HomeForm
+metadata: {title: 'Word Auto Key Encryption ', description: '', logo_img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.darkreading.com%2Fprivacy%2Ffaq-understanding-the-true-price-of-encryption&psig=AOvVaw0_uUjklgUZfAm2_PJmjkuL&ust=1713647362963000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJCPmoSYz4UDFQAAAAAdAAAAABAE'}
+startup_form: null
 db_schema:
   feedback:
     client: none

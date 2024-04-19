@@ -1,10 +1,10 @@
-from ._anvil_designer import HomeFormTemplate
+from ._anvil_designer import WakeEncryptionTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+import wake
 #
 # This is the Python code that makes this feedback form work.
 # It's a Python class, with a method that runs when the user
@@ -19,8 +19,7 @@ from anvil.tables import app_tables
 # left.
 #
 
-class HomeForm(HomeFormTemplate):
-
+class WakeEncryption(WakeEncryptionTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -48,3 +47,21 @@ class HomeForm(HomeFormTemplate):
     self.name_box.text = ""
     self.email_box.text = ""
     self.feedback_box.text = ""
+
+  def Encryptbtn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    Key = self.inputkey.text
+    Text = self.Plaintext.text 
+    self.Encryptedtext.text = wake.encrypt(Text,Key) 
+    
+    pass
+
+  def Decryptbtn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    Key = self.inputkey.text
+    Text = self.Plaintext.text 
+    Enctext = wake.encrypt(Text,Key)
+    self.Decryptedtext.text = wake.decrypt(Enctext,Key)
+
+    
+    pass

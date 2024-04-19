@@ -1,7 +1,9 @@
 unique_ids:
   forms:
-    HomeForm: RXKECMZN34MQAHDRK6EPIICDWR6S3KGX
-  modules: {}
+    WakeEncryption: RXKECMZN34MQAHDRK6EPIICDWR6S3KGX
+  modules:
+    WakeEncryption.sbox: '1713558918902575385221098.234'
+    WakeEncryption.wake: '1713558824336169190243556.58508'
   server_modules:
     SaveAndSendEmail: K3BJP54LLIFUNBZKPJQNF3SQ3PXH3K3L
   assets:

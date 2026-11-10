@@ -1,88 +1,77 @@
-# About This [Anvil](https://anvil.works/?utm_source=github:app_README) App
+# 🔐 Word Auto-Key Encryption (WAKE) Web App
 
-### Build web apps with nothing but Python.
+A web-based cryptography tool built with **[Anvil](https://anvil.works)** that demonstrates the **Word Auto-Key Encryption (WAKE)** stream cipher algorithm. Developed as an academic information security project, this application lets users interactively encrypt and decrypt messages using pure Python.
 
-The app in this repository is built with [Anvil](https://anvil.works?utm_source=github:app_README), the framework for building web apps with nothing but Python. You can clone this app into your own Anvil account to use and modify.
+🌐 **Live Demo:** [delirious-shocking-money.anvil.app](https://anvil.app)
 
-Below, you will find:
-- [How to open this app](#opening-this-app-in-anvil-and-getting-it-online) in Anvil and deploy it online
-- Information [about Anvil](#about-anvil)
-- And links to some handy [documentation and tutorials](#tutorials-and-documentation)
+---
 
-## Opening this app in Anvil and getting it online
+## 📜 About WAKE & History
 
-### Cloning the app
+**Word Auto-Key Encryption (WAKE)** is a symmetric-key stream cipher designed by computer scientist **David Wheeler** in **1993** (and presented at the *Fast Software Encryption* workshop). Wheeler—co-creator of the Burrows-Wheeler transform and the Tiny Encryption Algorithm (TEA)—designed WAKE specifically to achieve high-speed encryption on 32-bit general-purpose processors.
 
-Go to the [Anvil Editor](https://anvil.works/build?utm_source=github:app_README) (you might need to sign up for a free account) and click on “Clone from GitHub” (underneath the “Blank App” option):
+### How It Works
+* **32-Bit Word Architecture:** Unlike classic ciphers that operate on single bits or bytes, WAKE processes data in **32-bit words** using a **128-bit secret key** and a **256 × 32-bit substitution box (S-box)**.
+* **Cipher Feedback (Auto-Key) Mode:** WAKE generates its keystream dynamically by feeding previously generated ciphertext words back into the internal state alongside bitwise `XOR`, `AND`, `OR`, and right-shift operations.
+* **Cryptanalytic History:** While prized in the 1990s for its software speed and simplicity, subsequent cryptanalysis revealed that WAKE is vulnerable to **chosen-plaintext** and **chosen-ciphertext attacks**. As a result, it serves today as a classic educational model for studying stream cipher mechanics rather than a production security standard.
 
-<img src="https://anvil.works/docs/version-control-new-ide/img/git/clone-from-github.png" alt="Clone from GitHub"/>
+---
 
-Enter the URL of this GitHub repository. If you're not yet logged in, choose "GitHub credentials" as the authentication method and click "Connect to GitHub".
+## 🚀 How to Clone & Run the Project
 
-<img src="https://anvil.works/docs/version-control-new-ide/img/git/clone-app-from-git.png" alt="Clone App from Git modal"/>
+You can run this project either inside the **Anvil Cloud IDE** or locally on your machine using the open-source **Anvil App Server**.
 
-Finally, click "Clone App".
+### Option 1: Clone & Run in Anvil (Cloud IDE)
+1. Sign in to your [Anvil Works](https://anvil.works) account.
+2. Open the **Anvil Editor**, click **New Blank App** (or open your dashboard), and go to **Version Control** (the Git icon in the left sidebar).
+3. Select **Clone from Git** and paste your repository URL:
+   ```text
+   https://github.com/<your-username>/<your-repo-name>.git
+   ```
+4. Once imported, click **Run** in the top-right toolbar to launch the application.
 
-This app will then be in your Anvil account, ready for you to run it or start editing it! **Any changes you make will be automatically pushed back to this repository, if you have permission!** You might want to [make a new branch](https://anvil.works/docs/version-control-new-ide?utm_source=github:app_README).
+### Option 2: Clone & Run Locally (Anvil App Server)
+Make sure you have **Python 3** and **Java (JDK 8 or higher)** installed on your system, as the Anvil runtime requires Java to serve the backend.
 
-### Running the app yourself:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo-name>.git
+   cd <your-repo-name>
+   ```
 
-Find the **Run** button at the top-right of the Anvil editor:
+2. **Create and activate a virtual environment (recommended):**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
+   ```
 
-<img src="https://anvil.works/docs/img/run-button-new-ide.png"/>
+3. **Install the Anvil App Server:**
+   ```bash
+   pip install anvil-app-server
+   ```
 
+4. **Start the application:**
+   ```bash
+   anvil-app-server --app .
+   ```
+5. Open your browser and navigate to `http://localhost:3030` to use the app.
 
-### Publishing the app on your own URL
+---
 
-Now you've cloned the app, you can [deploy it on the internet with two clicks](https://anvil.works/docs/deployment/quickstart?utm_source=github:app_README)! Find the **Publish** button at the top-right of the editor:
+## 🛠️ Tech Stack
 
-<img src="https://anvil.works/docs/deployment-new-ide/img/environments/publish-button.png"/>
+* **Frontend & Backend Framework:** [Anvil](https://anvil.works) (Pure Python Web Framework)
+* **Language:** Python 3
+* **Algorithm:** Word Auto-Key Encryption (WAKE)
 
-When you click it, you will see the Publish dialog:
+---
 
-<img src="https://anvil.works/docs/deployment-new-ide/img/quickstart/empty-environments-dialog.png"/>
+## ⚠️ Educational Disclaimer
 
-Click **Publish This App**, and you will see that your app has been deployed at a new, public URL:
+This project was built for **academic and educational demonstration purposes**. Because WAKE has documented vulnerabilities against chosen-plaintext/ciphertext attacks, it should **not** be used to protect sensitive or production data. For modern encryption needs, use **AES-GCM** or **ChaCha20-Poly1305**.
 
-<img src="https://anvil.works/docs/deployment-new-ide/img/quickstart/default-public-environment.png"/>
+---
 
-That's it - **your app is now online**. Click the link and try it!
+## 📄 License
 
-## About Anvil
-
-If you’re new to Anvil, welcome! Anvil is a platform for building full-stack web apps with nothing but Python. No need to wrestle with JS, HTML, CSS, Python, SQL and all their frameworks – just build it all in Python.
-
-<figure>
-<figcaption><h3>Learn About Anvil In 80 Seconds👇</h3></figcaption>
-<a href="https://www.youtube.com/watch?v=3V-3g1mQ5GY" target="_blank">
-<img
-  src="https://anvil-website-static.s3.eu-west-2.amazonaws.com/anvil-in-80-seconds-YouTube.png"
-  alt="Anvil In 80 Seconds"
-/>
-</a>
-</figure>
-<br><br>
-
-[![Try Anvil Free](https://anvil-website-static.s3.eu-west-2.amazonaws.com/mark-complete.png)](https://anvil.works?utm_source=github:app_README)
-
-To learn more about Anvil, visit [https://anvil.works](https://anvil.works?utm_source=github:app_README).
-
-## Tutorials and documentation
-
-### Tutorials
-
-If you are just starting out with Anvil, why not **[try the 10-minute Feedback Form tutorial](https://anvil.works/learn/tutorials/feedback-form?utm_source=github:app_README)**? It features step-by-step tutorials that will introduce you to the most important parts of Anvil.
-
-Anvil has tutorials on:
-- [Building Dashboards](https://anvil.works/learn/tutorials/data-science#dashboarding?utm_source=github:app_README)
-- [Multi-User Applications](https://anvil.works/learn/tutorials/multi-user-apps?utm_source=github:app_README)
-- [Building Web Apps with an External Database](https://anvil.works/learn/tutorials/external-database?utm_source=github:app_README)
-- [Deploying Machine Learning Models](https://anvil.works/learn/tutorials/deploy-machine-learning-model?utm_source=github:app_README)
-- [Taking Payments with Stripe](https://anvil.works/learn/tutorials/stripe?utm_source=github:app_README)
-- And [much more....](https://anvil.works/learn/tutorials?utm_source=github:app_README)
-
-### Reference Documentation
-
-The Anvil reference documentation provides comprehensive information on how to use Anvil to build web applications. You can find the documentation [here](https://anvil.works/docs/overview?utm_source=github:app_README).
-
-If you want to get to the basics as quickly as possible, each section of this documentation features a [Quick-Start Guide](https://anvil.works/docs/overview/quickstarts?utm_source=github:app_README).
+Distributed under the [MIT License](LICENSE).
